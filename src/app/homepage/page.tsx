@@ -1,9 +1,10 @@
+import Homepage from "./Homepage";
 
 export default function homepage(){
   return (
     <>
     <h1>
-     This is homepage
+     <Homepage/>
     </h1>
     </>
   );

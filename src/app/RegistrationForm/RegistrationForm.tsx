@@ -5,7 +5,6 @@ import "./RegistrationForm.css";
 import { useState } from "react";
 import { url } from "inspector";
 import { METHODS } from "http";
-import Link from "next/link";
 type Register = {
   src: string;
   heading: string;
@@ -118,7 +117,7 @@ const RegistrationForm = () => {
       </div> 
 
       <div className="bg-zinc-900 text-green-50 flex flex-col  items-center">
-        <h1 className="pt-3 pb-3 text-blue-200">
+        <h1 className="pt-3 pb-3">
           Please kindly fill this form to procced forward
         </h1>
         {/* <h2 className="text-red-500">{error}</h2> */}
@@ -276,7 +275,7 @@ const RegistrationForm = () => {
             </div>
           </div>
 
-          <div className="flex items-start mt-5 mb-3">
+          <div className="flex items-start mt-5 mb-5">
             <div className="flex items-center h-5">
               <input
                 id="remember"
@@ -287,28 +286,19 @@ const RegistrationForm = () => {
             </div>
             <label
               htmlFor="remember"
-              className="ms-2 text-sm  font-medium text-orange-600 dark:text-orange-600"
+              className="ms-2 text-sm  font-medium text-gray-900 dark:text-gray-300"
             >
               Remember me
             </label>
           </div>
           {/* <h2 className="text-red-500">{error}</h2> */}
-          
+
           <Button
             onClick={handleOnclick}
-            name="Sign up"
-            classname="text-white bg-blue-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 mb-3 text-center dark:bg-green-600 dark:hover:opacity-50 dark:focus:ring-green-800 mt-2"
+            name="Submit"
+            classname="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 mb-3 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             spanClassname=""
           />
-          <h1 className="mt-1 text-amber-500">Already have an account ?</h1>
-          {/* <h1 className="mt-1 text-lime-400">You can Login in From here..</h1> */}
-          <Link href="/" ><Button
-                    onClick={()=>{}}
-                    name="Log in"
-                    classname="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 mb-3 text-center dark:bg-blue-600 dark:hover:opacity-50 dark:focus:ring-blue-800 mt-2"
-                    spanClassname=""
-                     /></Link> 
-          
         </form>
       </div>
     </div>

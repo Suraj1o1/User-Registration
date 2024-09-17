@@ -4,11 +4,13 @@ type Button={
     spanClassname:string;
     onClick: (e: any) => void;
     name:string;
+    
 }
-const Button = ({spanClassname,name,classname,onClick}:Button) => {
+
+const Button = ({classname,spanClassname,name,onClick}:Button) => {
   return (
     <div>
-      <button className={classname} onClick={onClick}> <span className={spanClassname}>
+      <button  className={classname} onClick={onClick}> <span className={spanClassname}>
 {name}
 </span></button>
     </div>

@@ -1,20 +1,56 @@
 "use client";
-import Button from '@/Button/Button'
+import UserProfileCard from '@/Card/UserProfileCard';
+import Navbar from '@/Navbar/Navbar';
+import SideBar from '@/SideBar/SideBar';
+import { SidebarUtils } from '@/Utils/Utils';
 import Link from 'next/link'
-import React from 'react'
+import React, { useState } from 'react'
 export default function Homepage() {
+const[sideTItle,setSideTitle]=useState(SidebarUtils)
+const[isUser,SetIsUser]=useState(false)
+const handleProfileClick=(user:any)=>{
+  
+    SetIsUser(user);
+    // setInterval(() => {
+    // SetIsUser(!user)
+    
+    // }, 3000);
+    
+}
   return (
-    <div className='bg-gray-950 w-full h-screen flex flex-col content-center justify-center items-center flex-wrap  '>
+    <div className='bg-gray-950 w-full h-screen flex flex-col flex-wrap  '>
+     
       <div>
-      <Link href="/">
-            <Button
-              onClick={()=>{}}
-              name="log out"
-              classname="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 mb-3 text-center dark:bg-blue-600 dark:hover:opacity-50 dark:focus:ring-blue-800 mt-1"
-              spanClassname=""
-            />
-          </Link>
+        <Navbar onProfileClick={handleProfileClick}>
+
+        </Navbar>
+       
       </div>
-    </div>
+
+
+      <div className='flex items-center'>
+        <div className='h-full flex-grow-5'>
+           {sideTItle.map((title)=>{
+            return<>
+           
+              <SideBar img={title.url} sidebarTitle={title.sidebartitle}/>
+          
+              </>
+            })} 
+        </div>
+       {isUser &&
+        <UserProfileCard Username="Utsav" useremail="utsav@123" Location="lalitpur"/>
+       }
+      
+     
+        </div>
+       <div>
+        
+       </div>
+        
+      </div>
+      
+      
+    
   )
 }

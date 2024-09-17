@@ -1,10 +1,11 @@
 "use client";
 import Button from "@/Button/Button";
 import RegistrationForm from "@/RegistrationForm/RegistrationForm";
-import { link } from "fs";
+import { access, link } from "fs";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import React, { use, useState } from "react";
+import { data } from "autoprefixer";
 
 const LoginPage = () => {
  
@@ -43,6 +44,11 @@ const LoginPage = () => {
 
       console.log("Successfully login", result);
 
+      // Save user data and tokens to localStorage
+      localStorage.setItem("user", JSON.stringify(result.data.user));
+      // localStorage.setItem("authToken", result.data.accessToken);
+      localStorage.setItem("accessToken", result.data.accessToken);
+      localStorage.setItem("refreshToken", result.data.refreshToken);
 
     } catch (error) {
       console.error("Login error:", error);
